@@ -1,0 +1,26 @@
+def listarGenero(bd,genero):
+    print("Título")
+    print("---------------")
+    for filme in bd:
+        if genero in filme["genres"]:
+            print(filme["title"])
+print(listarGenero(bd,"Drama"))
+            
+
+
+def listarElenco(bd,ator):
+    print("Título")
+    print("---------------")
+    for filme in bd:
+        if ator in filme["cast"]:
+            print(filme["title"])
+listarElenco(bd,"Billy Crudup")
+
+def listarTitulo(bd):
+    bd.sort (key=org)
+    print("ID      /Título      /Ano      ")
+    print("-------------------------------------------------------------")
+    for filme in bd:
+        print(filme["id"]+"|"+filme["Title"])
+    return
+print(listarTitulo(bd))
