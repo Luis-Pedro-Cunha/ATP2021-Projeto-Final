@@ -1,26 +1,53 @@
+def org(d):
+    titulo=d["title"].lower()
+    return (titulo)
+
+def listarTitulo(bd):
+    bd.sort (key=org)
+    print("Título")
+    print("------")
+    for filme in bd:
+        print(filme["title"])
+    return
+print(listarTitulo(bd))
+
 def listarGenero(bd,genero):
     print("Título")
-    print("---------------")
+    print("------")
     for filme in bd:
         if genero in filme["genres"]:
             print(filme["title"])
-print(listarGenero(bd,"Drama"))
+listarGenero(bd,"Drama")
             
-
 
 def listarElenco(bd,ator):
     print("Título")
-    print("---------------")
+    print("------")
     for filme in bd:
         if ator in filme["cast"]:
             print(filme["title"])
 listarElenco(bd,"Billy Crudup")
+    
 
-def listarTitulo(bd):
-    bd.sort (key=org)
-    print("ID      /Título      /Ano      ")
-    print("-------------------------------------------------------------")
+def listar(bd):
+    print("Título|Ano|Atores|Géneros")
+    print("-------------------------")
     for filme in bd:
-        print(filme["id"]+"|"+filme["Title"])
-    return
-print(listarTitulo(bd))
+        Frase=filme["title"]+"|"+str(filme["year"])+"|"
+        for ator in filme["cast"]:
+            if filme["cast"].index(ator)==(len(filme["cast"])-1):
+                Frase=Frase+str(ator)
+            elif filme["cast"][filme["cast"].index(ator)+1]=="(Narrator)":
+                Frase=Frase+str(ator)+" "
+            else:
+                Frase=Frase+str(ator)+", "
+        Frase=Frase+"|"
+        for genero in filme["genres"]:
+            if filme["genres"].index(genero)==(len(filme["genres"])-1):
+                Frase=Frase+str(genero)
+            else:
+                Frase=Frase+str(genero)+", "
+        Frase=Frase+"\n"
+        print(Frase)
+listar(bd)
+    
