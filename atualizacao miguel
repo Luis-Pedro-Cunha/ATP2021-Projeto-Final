@@ -9,7 +9,7 @@ def listarTitulo(bd):
     for filme in bd:
         print(filme["title"])
     return
-print(listarTitulo(bd))
+listarTitulo(bd)
 
 def listarGenero(bd,genero):
     print("Título")
