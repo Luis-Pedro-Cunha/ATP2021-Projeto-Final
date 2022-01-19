@@ -14,6 +14,7 @@ listarTitulo(bd)
 def listarGenero(bd,genero):
     print("Título")
     print("------")
+    genero=genero.capitalize()
     for filme in bd:
         if genero in filme["genres"]:
             print(filme["title"])
