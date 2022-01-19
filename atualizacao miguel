@@ -51,4 +51,16 @@ def listar(bd):
         Frase=Frase+"\n"
         print(Frase)
 listar(bd)
+
+
+
+def listarElenco(bd,ator):
+    x=[] 
+    Frase="" 
+    for filme in bd:
+        if ator in filme["cast"]:
+            x.append(filme["title"])
+    for i in x: 
+        Frase+=str(i)+"\n"
+    return Frase
     
