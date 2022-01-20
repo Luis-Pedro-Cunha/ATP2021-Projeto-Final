@@ -63,4 +63,24 @@ def listarElenco(bd,ator):
     for i in x: 
         Frase+=str(i)+"\n"
     return Frase
-    
+#Nova função listar    
+def listar(bd):
+    s=["Título|Ano|Atores|Géneros","-------------------------"]
+    for filme in bd:
+        Frase=""
+        Frase+=str(filme["title"])+"|"+str(filme["year"])+"|"
+        for ator in filme["cast"]:
+            if filme["cast"].index(ator)==(len(filme["cast"])-1):
+                Frase=Frase+str(ator)
+            elif filme["cast"][filme["cast"].index(ator)+1]=="(Narrator)":
+                Frase=Frase+str(ator)+" "
+            else:
+                Frase=Frase+str(ator)+", "
+        Frase=Frase+"|"
+        for genero in filme["genres"]:
+            if filme["genres"].index(genero)==(len(filme["genres"])-1):
+                Frase=Frase+str(genero)
+            else:
+                Frase=Frase+str(genero)+", "
+        s.append(Frase)
+    return s
